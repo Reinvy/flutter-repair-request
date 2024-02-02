@@ -1,4 +1,4 @@
-package com.example.repair_request
+package com.pksts.reqpair
 
 import io.flutter.embedding.android.FlutterActivity
 
