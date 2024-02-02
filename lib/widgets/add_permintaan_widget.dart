@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:repair_request/widgets/default_loading_dialog.dart';
 
 import '../datasources/remote_datasources.dart';
 import '../models/request_model.dart';
@@ -74,6 +75,7 @@ class AddPermintaanWidget extends StatelessWidget {
         FilledButton(
           onPressed: () async {
             if (formKey.currentState!.validate()) {
+              defaultLoadingDialog(context);
               RemoteDatasource()
                   .addRequest(
                     RequestModel(
@@ -88,13 +90,16 @@ class AddPermintaanWidget extends StatelessWidget {
                   )
                   .then(
                     (value) => RemoteDatasource().sendNotification(
-                      "Permintaan Perbaikan",
+                      "Permintaan Perbaikan Baru",
                       kerusakanC.text,
                     ),
                   )
                   .then(
-                    (value) => Navigator.pop(context),
-                  );
+                (value) {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                },
+              );
             }
           },
           child: Text("Buat"),

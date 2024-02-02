@@ -12,7 +12,7 @@ class MainNavigation extends StatefulWidget {
 }
 
 class _MainNavigationState extends State<MainNavigation> {
-  int i = 1;
+  int i = 0;
   List<Widget> screens = [
     const BelumDikerjakanScreen(),
     const DikerjakanScreen(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:repair_request/widgets/default_loading_dialog.dart';
 
 import '../datasources/remote_datasources.dart';
 import '../models/request_model.dart';
@@ -87,6 +88,7 @@ class _EditPermintaanWidgetState extends State<EditPermintaanWidget> {
         FilledButton(
           onPressed: () async {
             if (formKey.currentState!.validate()) {
+              defaultLoadingDialog(context);
               RemoteDatasource()
                   .editRequest(
                     RequestModel(
@@ -107,6 +109,7 @@ class _EditPermintaanWidgetState extends State<EditPermintaanWidget> {
                   )
                   .then(
                 (value) {
+                  Navigator.pop(context);
                   Navigator.pop(context);
                   Navigator.pop(context);
                 },
